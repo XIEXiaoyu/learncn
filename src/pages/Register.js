@@ -1,7 +1,6 @@
 import React from 'react';
 import 
 { 
-    AppRegistry, 
     Image,
     StatusBar, 
     StyleSheet, 
@@ -10,59 +9,105 @@ import
     TouchableOpacity,
     View, 
 } from 'react-native';
+import Slogan from '../../src/components/Slogan';
 
 export default class Register extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            username: "",
+            password: "",
+            mobile: "",
+        };
+    }
+
+    onLoginPressed(event) {
+        fetch('http://169.254.79.6/xieAttendance/request.php', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password,
+            }),            
+        })
+        .then(response => {
+            // we can do console.log(response.json) here, or it will give error. because that would be response.json().json() returned.
+            return response.json()
+        })
+        .then(responseJson => {
+
+            console.log(responseJson.id);
+
+        })
+    }
+
+
+
+
     render() {
         return (
             <View 
                 style={styles.MainContainer}
             >   
                 <StatusBar hidden={true} />
-                <View
-                    style={styles.Logo}
-                >
-                    <Image
-                        source={require('./../images/Commapp_Logo.png')}
-                        style={{flex:3,width:undefined,height:undefined}}
-                        resizeMode="contain"
-                    />
-                    <Text style={{flex: 1,textAlign: 'right', fontSize:28}}>Attendance</Text> 
-                </View>
+                
+                <Slogan/>
+
+                <View style={styles.Empty}></View>
+
                 <View
                     style={styles.InputContainer}
                 >
-                    <Text
-                        style={styles.MainText}
-                    >Xie Jun</Text>
                     <TextInput underlineColorAndroid={'transparent'}
                         style={styles.UserInput}
-                        placeholder="Username"
+                        placeholder="Email (as your username)"
                         selectionColor="#595856"
                         keyboardType="email-address"
                         onSubmitEditing={()=>this.password.focus()}
+                        onChangeText={(text)=>{this.setState({username:text});}}
+                        value={this.state.username}
                     />
-                    <Text
-                        style={styles.MainText}
-                    >
-                    Password
-                    </Text>
                     <TextInput underlineColorAndroid={'transparent'}
                         style={styles.UserInput}
+                        placeholder="Password"
                         secureTextEntry={true}
                         selectionColor="#595856"
                         ref={(input) => this.password = input}
+                        onChangeText={(text)=>{ this.setState({password:text});}}
+                    />
+                    <TextInput underlineColorAndroid={'transparent'}
+                        style={styles.UserInput}
+                        placeholder="Mobile Number"
+                        secureTextEntry={true}
+                        selectionColor="#595856"
+                        // ref={(input) => this.password = input}
+                        onChangeText={(text)=>{ this.setState({mobile:text});}}
                     />
                 </View>
 
                 <View
-                    style={styles.Login}
+                    style={styles.WelcomImage}
+                >
+                    <Image
+                        source={require('./../images/hello4.png')}
+                        style={{flex:1,width:undefined,height:undefined}}
+                        resizeMode="contain"
+                    />
+                </View>
+
+                <View
+                    style={styles.Footer}
                 >
                     <TouchableOpacity
-                        style={styles.LoginButton}
+                        style={styles.RegisterButton}
+                        onPress={()=>this.props.navigation.navigate('Verification')}
                     >
                         <Text
-                            style={styles.LoginText}
-                        >Login</Text>
+                            style={styles.RegisterText}
+                        >Join Us Now!</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -77,61 +122,59 @@ const styles = StyleSheet.create(
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: '#fff9c4',
+        backgroundColor: '#ffffe6',
     },
-    Logo: 
+    Empty:
     {
-        flex: 1,
-        width:'100%',
-        padding: 10
+        flex: 4,
     },
     InputContainer:
     {
-        flex: 3,
+        flex: 7,
         justifyContent: 'flex-start',
-        paddingTop: 20
-    },
-    MainText:
-    {
-        width: 300,
-        fontSize: 22,
-        fontWeight: '400',
-        color: '#595856',
-        textAlign: 'left',
-        textAlignVertical: 'bottom',
+        alignItems: 'center',
+        paddingTop: 20,
+        width: '100%',
     },
     UserInput:
     {
-        height: 50,
-        width: 300,
-        fontSize: 22,
+        height: 45,
+        width: '80%',
+        fontSize: 20,
         paddingLeft: 4,
-        backgroundColor: '#EEEEEE',
-        borderColor: 'gray',
-        borderWidth: 1,
-        borderRadius: 5,
+        borderBottomColor: 'gray',
+        borderBottomWidth: 1,
         marginBottom: 15,
     },
-    Login:
+    WelcomImage:
     {
-        flex: 1,
-        justifyContent: 'flex-start',
+        flex: 7,
+        width: '100%',
     },
-    LoginButton:
+    Footer:
     {
-        height: 55,
-        width: 250,
-        backgroundColor: '#E0E0E0',
+        flex: 2,
+        width: '100%', 
+        justifyContent: 'center',
+        alignItems: 'center', 
+        backgroundColor: '#f2f2f2',    
+    },
+    RegisterButton:
+    {
+        height: '60%',
+        maxHeight: 60,
+        width: '35%',
+        backgroundColor: '#ffffe6',
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#BDBDBD',
-        borderRadius: 5,
+        borderColor: '#d9d9d9',
+        borderRadius: 3,
     },
-    LoginText:
+    RegisterText:
     {
-        fontSize: 30,
-        fontWeight: '500',
-        color: '#3C3C3C',
-    }
+        color: 'green',
+        fontSize: 14,
+        fontWeight: '300',
+    },
 });
