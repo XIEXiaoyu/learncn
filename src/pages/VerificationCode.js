@@ -10,7 +10,7 @@ import
 } from 'react-native';
 import Slogan from '../../src/components/Slogan';
 
-export default class Verification extends React.Component {
+export default class VerificationCode extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -43,10 +43,11 @@ export default class Verification extends React.Component {
 
     render() {
         return (
-            <View style={styles.MainContainer}>   
+            <View style={styles.Container}>   
                 <StatusBar hidden={true} />
 
-                <Slogan/>
+                <View style={styles.Slogan}><Slogan/></View>
+                
 
                 <View style={styles.EmptyTop} >
                 </View>
@@ -96,12 +97,16 @@ export default class Verification extends React.Component {
 
 const styles = StyleSheet.create(
 {
-    MainContainer:
+    Container:
     {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         backgroundColor: '#ffffe6',
+    },
+    Slogan: {
+        flex: 2,
+        width: '100%',
     },
     Information:
     {

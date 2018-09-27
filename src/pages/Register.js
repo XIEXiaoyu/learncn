@@ -50,11 +50,11 @@ export default class Register extends React.Component {
     render() {
         return (
             <View 
-                style={styles.MainContainer}
+                style={styles.Container}
             >   
                 <StatusBar hidden={true} />
                 
-                <Slogan/>
+                <View style={styles.Slogan}><Slogan/></View>
 
                 <View style={styles.Empty}></View>
 
@@ -103,7 +103,7 @@ export default class Register extends React.Component {
                 >
                     <TouchableOpacity
                         style={styles.RegisterButton}
-                        onPress={()=>this.props.navigation.navigate('Verification')}
+                        onPress={()=>this.props.navigation.navigate('VerificationCode')}
                     >
                         <Text
                             style={styles.RegisterText}
@@ -117,12 +117,16 @@ export default class Register extends React.Component {
 
 const styles = StyleSheet.create(
 {
-    MainContainer:
+    Container:
     {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         backgroundColor: '#ffffe6',
+    },
+    Slogan: {
+        flex: 2,
+        width: '100%',
     },
     Empty:
     {

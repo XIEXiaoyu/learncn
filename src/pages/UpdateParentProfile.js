@@ -10,13 +10,7 @@ import
 } from 'react-native';
 import Slogan from '../../src/components/Slogan';
 
-export default class ParentProfile extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            code: "",
-        };
-    }
+export default class UpdateParentProfile extends React.Component {
 
     onLoginPressed(event) {
         fetch('http://169.254.79.6/xieAttendance/request.php', {
@@ -43,18 +37,11 @@ export default class ParentProfile extends React.Component {
 
     render() {
         return (
-            <View style={styles.Container}>   
+            <View style={styles.MainContainer}>   
                 <StatusBar hidden={true} />
 
                 <View style={styles.Slogan}>
                     <Slogan/>
-                </View>
-                
-
-                <View style={styles.Tour}>
-                    <Text
-                        style={{color: 'green'}}
-                    >View Tour</Text>
                 </View>
 
                 <View style={styles.Title}>
@@ -63,13 +50,20 @@ export default class ParentProfile extends React.Component {
                     >Parent Profile</Text>
                 </View>
 
-                <View style={styles.Email}>
-                    <Text style={{color: 'orange', fontSize:18}}>Parent@email.com</Text>
-                </View>
+                <TextInput 
+                    style={styles.Inputbox}
+                    underlineColorAndroid={'transparent'}
+                    placeholder="Enter New Email"
+                    selectionColor="#595856"
+                    keyboardType="email-address"
+                />
 
-                <View style={styles.Phone}>
-                    <Text style={{color: 'orange', fontSize:18}}>Phone123456</Text>
-                </View>
+                <TextInput 
+                    style={styles.Inputbox}
+                    underlineColorAndroid={'transparent'}
+                    placeholder="Enter New Phone Number"
+                    selectionColor="#595856"
+                />
  
                 <View style={styles.ButtonContainer}>
                     <TouchableOpacity 
@@ -78,6 +72,7 @@ export default class ParentProfile extends React.Component {
                         >
                         <Text style={styles.ButtonText}>Update</Text>
                     </TouchableOpacity>
+                    
                     <TouchableOpacity style={styles.Button}>
                         <Text style={styles.ButtonText}>Add Child</Text>
                     </TouchableOpacity>
@@ -95,7 +90,7 @@ export default class ParentProfile extends React.Component {
 
 const styles = StyleSheet.create(
 {
-    Container:
+    MainContainer:
     {
         flex: 1,
         flexDirection: 'column',
@@ -105,14 +100,6 @@ const styles = StyleSheet.create(
     Slogan:{
         flex: 2,
         width: '100%',
-    },
-    Tour:
-    {
-        flex: 2,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        marginRight: '10%',
     },
     Title:
     {

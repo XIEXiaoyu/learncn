@@ -6,3 +6,6 @@ https://facebook.github.io/react-native/docs/navigation
 2. for sqlite database 
 npm install --save react-native-sqlite-storage
 https://github.com/andpor/react-native-sqlite-storage
+3. For vector icons
+npm install react-native-vector-icons --save
+https://www.npmjs.com/package/react-native-vector-icons

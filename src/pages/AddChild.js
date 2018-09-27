@@ -12,38 +12,7 @@ import
 import Slogan from '../../src/components/Slogan';
 import Form from '../../src/components/Form';
 
-export default class Login extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-        };
-    }
-
-    onLoginPressed(event) {
-        fetch('http://169.254.79.6/xieAttendance/request.php', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-            }),            
-        })
-        .then(response => {
-            // we can do console.log(response.json) here, or it will give error. because that would be response.json().json() returned.
-            return response.json()
-        })
-        .then(responseJson => {
-
-            console.log(responseJson.id);
-
-        })
-    }
-
+export default class AddChild extends React.Component {
     render() {
         return (
             <View style={styles.Container}>  
