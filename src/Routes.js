@@ -4,17 +4,24 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import VerificationCode from './pages/VerificationCode';
 import ParentProfile from './pages/ParentProfile';
-import UpdateParentProfile from './pages/UpdateParentProfile';
 import AddChild from './pages/AddChild';
+import Example from './pages/Example';
+import ChildSetting from './pages/ChildSetting';
+import PinYinOnly from './pages/PinYinOnly';
+import Word from './pages/Word';
+import Home from './pages/Home';
 
 const Routes = createStackNavigator(
 	{
 	  	Login: { screen: Login },
 	  	Register: { screen: Register },
-      VerificationCode: { screen: VerificationCode },
-      ParentProfile: { screen: ParentProfile },
-      UpdateParentProfile: {screen: UpdateParentProfile},
-      AddChild: {screen: AddChild},
+        VerificationCode: { screen: VerificationCode },
+        ParentProfile: { screen: ParentProfile },
+        AddChild: {screen: AddChild},
+        ChildSetting: {screen: ChildSetting},
+        PinYinOnly: {screen: PinYinOnly},
+        Word: {screen: Word},
+        Home: {screen: Home},
 	},
   	{
     	initialRouteName: 'Login',

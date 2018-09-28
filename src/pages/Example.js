@@ -13,7 +13,7 @@ import
 import Slogan from '../../src/components/Slogan';
 import ModalDropdown from 'react-native-modal-dropdown';
 
-export default class AddChild extends React.Component {
+export default class Example extends React.Component {
     constructor(props){
         super(props);
     }
@@ -91,6 +91,7 @@ export default class AddChild extends React.Component {
                             borderWidth: 1,
                             borderColor: '#BDBDBD',
                             borderRadius: 5}}
+                        onPress={()=>this.props.navigation.navigate('Example')}
                     >
                         <Text
                             style={{fontSize: 20,fontWeight: '300',color: '#ffffff',}}
@@ -106,7 +107,6 @@ export default class AddChild extends React.Component {
                             borderWidth: 1,
                             borderColor: '#BDBDBD',
                             borderRadius: 5}}
-                        onPress={()=>this.props.navigation.navigate('ChildSetting')}
                     >
                         <Text
                             style={{fontSize: 20,fontWeight: '300',color: '#ffffff',}}

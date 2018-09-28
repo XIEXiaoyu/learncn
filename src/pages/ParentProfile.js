@@ -9,6 +9,7 @@ import
     View, 
 } from 'react-native';
 import Slogan from '../../src/components/Slogan';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class ParentProfile extends React.Component {
     constructor(props){
@@ -64,21 +65,21 @@ export default class ParentProfile extends React.Component {
                 </View>
 
                 <View style={styles.Email}>
+                    <Icon name="envelope" size={25} color="gray" />
                     <Text style={{color: 'orange', fontSize:18}}>Parent@email.com</Text>
+                    <Icon name="pencil" size={22} color="orange" />
                 </View>
 
                 <View style={styles.Phone}>
+                    <Icon name="phone" size={25} color="gray" />
                     <Text style={{color: 'orange', fontSize:18}}>Phone123456</Text>
+                    <Icon name="pencil" size={22} color="orange" />
                 </View>
  
                 <View style={styles.ButtonContainer}>
                     <TouchableOpacity 
                         style={styles.Button}
-                        onPress={()=>this.props.navigation.navigate('UpdateParentProfile')}
-                        >
-                        <Text style={styles.ButtonText}>Update</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.Button}>
+                        onPress={()=>this.props.navigation.navigate('AddChild')}>
                         <Text style={styles.ButtonText}>Add Child</Text>
                     </TouchableOpacity>
                 </View>
@@ -124,10 +125,12 @@ const styles = StyleSheet.create(
     Email:
     {
         flex: 2,
+        flexDirection: 'row',
     },
     Phone:
     {
         flex:2,
+        flexDirection: 'row',
     },
     ButtonContainer:
     {
