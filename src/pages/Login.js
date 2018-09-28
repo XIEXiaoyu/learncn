@@ -70,6 +70,14 @@ export default class Login extends React.Component {
                     <Form/>
                 </View>
 
+                <View style={{flex:1}}>
+                    <TouchableOpacity
+                        onPress={()=>this.props.navigation.navigate('Home')}
+                    >
+                        <Text>Fake Login</Text>
+                    </TouchableOpacity>
+                </View>
+
                 <Image
                     source={require('./../images/hello4.png')}
                     style={styles.HappyImage}
@@ -126,7 +134,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     Form: {
-        flex: 6,
+        flex: 5,
         width: '100%',
     },
     HappyImage: {

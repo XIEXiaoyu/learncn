@@ -53,45 +53,54 @@ export default class Home extends React.Component {
                     <Slogan/>
                 </View>
 
-                <View style={styles.Language}>
-                    <Text style={{fontSize: 20, fontWeight: '800', color: '#FFA500'}}>华文</Text>
+                <View style={{flex:2,flexDirection:'row',backgroundColor:'green',justifyContent:'space-around',alignItems:'center'}}>
+                    <TouchableOpacity style={{flex:1,backgroundColor:'gray',alignItems:'center'}}><Text>Term1</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex:1,alignItems:'center'}}><Text>Term2</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex:1,alignItems:'center'}}><Text>Term3</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex:1,alignItems:'center'}}><Text>Term4</Text></TouchableOpacity>
                 </View>
 
-                <View style={styles.HelloImage}>
-                    <Image
-                        source={require('./../images/hello1.jpeg')}
-                        style={{flex:1,width:undefined,height:undefined}}
-                        resizeMode="contain"
-                    />
+                <View style={{flex:12,flexDirection:'row'}}>
+                    <View>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 1</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 2</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 3</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 4</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 5</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 6</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 7</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 8</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 9</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{flex:1}}>
+                            <Text>Lesson 10</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
-                <View style={styles.Form}>
-                    <Form linkTo='Home'/>
-                </View>
-
-                <Image
-                    source={require('./../images/hello4.png')}
-                    style={styles.HappyImage}
-                    resizeMode="contain"
-                />
-
-                <View style={styles.ForgetPassword}>
-                    <Text
-                        style={{color: '#ffa64d', fontWeight: '500', fontSize: 18 }}
-                    >Forgotten Your Password?</Text>
-                </View>
-
-                <View style={styles.Or} >
-                    <Text style={{color: 'gray' }}>OR</Text>
-                </View>
-
-                <View style={styles.JoinNow}>
-                    <TouchableOpacity
-                        style={styles.RegisterButton}
-                        onPress={()=>this.props.navigation.navigate('Register')}
-                    >
-                        <Text style={styles.RegisterText}>Join Us Now!</Text>
-                    </TouchableOpacity>
+                <View style={{flex:4,flexDirection:'row'}}>
+                    <View style={{flex:1}}><Text>Read</Text></View>
+                    <View style={{flex:1}}><Text>write</Text></View>
+                    <View style={{flex:1}}><Text>PinYin</Text></View>
                 </View>
 
                 <View style={styles.Footer}>
@@ -112,63 +121,6 @@ const styles = StyleSheet.create({
     Slogan: {
         flex: 2,
         width: '100%',
-    },
-    Language:{
-        flex: 1,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        paddingRight: '5%',
-    },
-    HelloImage:{
-        flex: 3,
-        width: '100%',
-    },
-    Form: {
-        flex: 6,
-        width: '100%',
-    },
-    HappyImage: {
-        flex: 4,
-    },
-    ForgetPassword:
-    {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
-    Or:
-    {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    JoinNow:
-    {
-        flex: 2,
-        width: '100%',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
-    RegisterButton:
-    {
-        height: '60%',
-        maxHeight: 60,
-        width: '35%',
-        backgroundColor: '#ffffe6',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 1,
-        borderColor: '#d9d9d9',
-        borderRadius: 3,
-    },
-    RegisterText:
-    {
-        color: 'green',
-        fontSize: 14,
-        fontWeight: '300',
     },
     Footer:
     {
