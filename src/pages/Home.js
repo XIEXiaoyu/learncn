@@ -9,7 +9,8 @@ import
     TouchableOpacity,
     View, 
 } from 'react-native';
-import Slogan from '../../src/components/Slogan';
+import Slogan from '../components/Slogan';
+import Pencil from '../components/Pencil';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -61,39 +62,19 @@ export default class Home extends React.Component {
                 </View>
 
                 <View style={{flex:12,flexDirection:'row'}}>
-                    <View>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 1</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 2</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 3</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 4</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 5</Text>
-                        </TouchableOpacity>
+                    <View style={{flex:1,backgroundColor:'blue'}}>
+                        <Pencil lesson='lesson1'/>
+                        <Pencil lesson='lesson2'/>
+                        <Pencil lesson='lesson3'/>
+                        <Pencil lesson='lesson4'/>
+                        <Pencil lesson='lesson5'/>
                     </View>
-                    <View>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 6</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 7</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 8</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 9</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}>
-                            <Text>Lesson 10</Text>
-                        </TouchableOpacity>
+                    <View style={{flex:1,backgroundColor:'yellow'}}>
+                        <Pencil lesson='lesson6'/>
+                        <Pencil lesson='lesson7'/>
+                        <Pencil lesson='lesson8'/>
+                        <Pencil lesson='lesson9'/>
+                        <Pencil lesson='lesson10'/>
                     </View>
                 </View>
 

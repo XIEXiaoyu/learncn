@@ -11,6 +11,7 @@ import
 } from 'react-native';
 import Slogan from '../../src/components/Slogan';
 import Form from '../../src/components/Form';
+import Strings from '../localization';
 
 export default class Login extends React.Component {
     constructor(props){
@@ -18,7 +19,30 @@ export default class Login extends React.Component {
         this.state = {
             username: "",
             password: "",
+            language: "",
         };
+    }
+
+    setLanguage(){
+        let phoneLanguage = Strings.getLanguage();
+
+        if(phoneLanguage != 'en'){
+            Strings.setLanguage('zh-CN');
+            this.setState({language: 'zh-CN'}); 
+        } else{
+            Strings.setLanguage('en');
+            this.setState({language: 'en'});
+        }
+    }
+
+    changeLanguage(){
+        if(this.state.language == 'zh-CN'){
+            Strings.setLanguage('en');
+            this.setState({language: 'en'});
+        } else{
+            Strings.setLanguage('zh-CN');
+            this.setState({language: 'zh-CN'});          
+        }
     }
 
     onLoginPressed(event) {
@@ -44,6 +68,10 @@ export default class Login extends React.Component {
         })
     }
 
+    componentWillMount() {
+        this.setLanguage();
+    }
+
     render() {
         return (
             <View style={styles.Container}>  
@@ -54,9 +82,12 @@ export default class Login extends React.Component {
                     <Slogan/>
                 </View>
 
-                <View style={styles.Language}>
-                    <Text style={{fontSize: 20, fontWeight: '800', color: '#FFA500'}}>华文</Text>
-                </View>
+                <TouchableOpacity 
+                    style={styles.Language}
+                    onPress={()=>this.changeLanguage()}
+                >
+                    <Text style={{fontSize: 20, fontWeight: '800', color: '#FFA500'}}>{Strings.preferredLanguage}</Text>
+                </TouchableOpacity>
 
                 <View style={styles.HelloImage}>
                     <Image
@@ -67,15 +98,7 @@ export default class Login extends React.Component {
                 </View>
 
                 <View style={styles.Form}>
-                    <Form/>
-                </View>
-
-                <View style={{flex:1}}>
-                    <TouchableOpacity
-                        onPress={()=>this.props.navigation.navigate('Home')}
-                    >
-                        <Text>Fake Login</Text>
-                    </TouchableOpacity>
+                    <Form onPress={()=>this.props.navigation.navigate("Home")} />
                 </View>
 
                 <Image
@@ -87,11 +110,11 @@ export default class Login extends React.Component {
                 <View style={styles.ForgetPassword}>
                     <Text
                         style={{color: '#ffa64d', fontWeight: '500', fontSize: 18 }}
-                    >Forgotten Your Password?</Text>
+                    >{Strings.forgetPassword}</Text>
                 </View>
 
                 <View style={styles.Or} >
-                    <Text style={{color: 'gray' }}>OR</Text>
+                    <Text style={{color: 'gray' }}>{Strings.or}</Text>
                 </View>
 
                 <View style={styles.JoinNow}>
@@ -99,7 +122,7 @@ export default class Login extends React.Component {
                         style={styles.RegisterButton}
                         onPress={()=>this.props.navigation.navigate('Register')}
                     >
-                        <Text style={styles.RegisterText}>Join Us Now!</Text>
+                        <Text style={styles.RegisterText}>{Strings.joinNow}</Text>
                     </TouchableOpacity>
                 </View>
 

@@ -10,11 +10,13 @@ import
     View, 
 } from 'react-native';
 
+import Strings from '../localization';
+
 export default class Slogan extends React.Component {
 	render() {
 		return(
 	        <View style={styles.Slogan}>
-	            <Text style={styles.SloganText}>{"Let's Learn Chinese!"}</Text>
+	            <Text style={styles.SloganText}>{Strings.slogan}</Text>
 	        </View>
 		);
 	}

@@ -7,6 +7,7 @@ import
     TouchableOpacity,
     View, 
 } from 'react-native';
+import Strings from '../localization';
 
 export default class Form extends React.Component {
     constructor(props){
@@ -20,21 +21,23 @@ export default class Form extends React.Component {
 	            	<TextInput 
 	                	style={styles.Inputbox}
 	                	underlineColorAndroid={'transparent'}
-	                    placeholder="Username"
+	                    placeholder={Strings.username}
 	                    selectionColor="#595856"
 	                    keyboardType="email-address"
 	                />
 	                <TextInput 
 	                	style={styles.Inputbox}
 	                	underlineColorAndroid={'transparent'}
-	                    placeholder="Password"
+	                    placeholder={Strings.password}
 	                    selectionColor="#595856"
 	                    secureTextEntry={true}
 	                />
             	</View>
             	<View style={styles.ButtonContainer}>
-	                <TouchableOpacity style={styles.Button}>
-	                    <Text style={styles.ButtonText}>Login</Text>
+	                <TouchableOpacity style={styles.Button}
+                        onPress={this.props.onPress}
+                    >
+	                    <Text style={styles.ButtonText}>{Strings.login}</Text>
 	                </TouchableOpacity>
             	</View>
             </View>

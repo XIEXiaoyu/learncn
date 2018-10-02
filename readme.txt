@@ -12,3 +12,7 @@ https://www.npmjs.com/package/react-native-vector-icons
 4. For dropdown list
 npm i react-native-modal-dropdown -save
 https://www.npmjs.com/package/react-native-modal-dropdown
+5. For internationalization (differernt language versions)
+npm install react-native-localization --save
+react-native link react-native-localization
+https://www.npmjs.com/package/react-native-localization
