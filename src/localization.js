@@ -20,6 +20,14 @@ export default new LocalizedStrings({
    		lesson8: 'Lesson 8',
      	lesson9: 'Lesson 9',
      	lesson10: 'Lesson 10',
+     	term1: 'Term 1',
+     	term2: 'Term 2',
+     	term3: 'Term 3',
+     	term4: 'Term 4',
+     	learnTo: 'Learn to',
+     	read: 'Read',
+     	write: 'Write',
+     	pinyin: 'PinYin',
  	},
  	"zh-CN": {
  		slogan: '来学中文吧',
@@ -40,5 +48,13 @@ export default new LocalizedStrings({
 	   	lesson8: '第八课',
 	   	lesson9: '第九课',
 	   	lesson10: '第十课',
+	   	term1: '学期一',
+	   	term2: '学期二',
+	   	term3: '学期三',
+	   	term4: '学期四',
+	   	learnTo: '学',
+     	read: '发音',
+     	write: '写字',
+     	pinyin: '拼音',
  	}
 });
