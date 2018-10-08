@@ -10,6 +10,7 @@ import ChildSetting from './pages/ChildSetting';
 import PinYinOnly from './pages/PinYinOnly';
 import Word from './pages/Word';
 import Home from './pages/Home';
+import WriteStoke from './pages/WriteStoke';
 
 const Routes = createStackNavigator(
 	{
@@ -22,6 +23,7 @@ const Routes = createStackNavigator(
         PinYinOnly: {screen: PinYinOnly},
         Word: {screen: Word},
         Home: {screen: Home},
+        WriteStoke: {screen: WriteStoke},
 	},
   	{
     	initialRouteName: 'Login',

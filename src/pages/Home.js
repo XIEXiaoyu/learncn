@@ -10,10 +10,12 @@ import
     TouchableOpacity,
     View, 
 } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 import Slogan from '../components/Slogan';
 import Pencil from '../components/Pencil';
 import Term from '../components/Term';
 import LearnWhat from '../components/LearnWhat';
+import Tab from '../components/Tab';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -99,12 +101,7 @@ export default class Home extends React.Component {
                 </View>
 
                 <View style={{flex:12,flexDirection:'row'}}>
-                    <View style={{flex:1,backgroundColor:'blue'}}>
-                        {pencilsLeftButtons}
-                    </View>
-                    <View style={{flex:1,backgroundColor:'yellow'}}>
-                        {pencilsRightButtons}
-                    </View>
+                    <Tab />
                 </View>
 
                 <View style={{flex:4,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
@@ -112,7 +109,12 @@ export default class Home extends React.Component {
                 </View>
 
                 <View style={styles.Footer}>
-                    <Text style={{ color: '#c68c53', fontSize: 22, fontWeight: '500'}}>Take a Tour</Text>
+
+                    <TouchableOpacity
+                        onPress={()=>this.props.navigation.navigate('WriteStoke')}
+                    >
+                        <Text>Learn Stroke</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
