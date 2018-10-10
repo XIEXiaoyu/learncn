@@ -46,7 +46,7 @@ export default class Login extends React.Component {
     }
 
     onLoginPressed(event) {
-        fetch('http://169.254.79.6/xieAttendance/request.php', {
+        fetch('http://192.168.2.179/api/public/learncn/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -66,11 +66,40 @@ export default class Login extends React.Component {
             console.log(responseJson.id);
 
         })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     componentWillMount() {
         this.setLanguage();
     }
+
+    login() {
+        fetch('http://192.168.1.54/api/public/learncn/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: 'xie',
+                password: '123',
+            }),            
+        })
+        .then(response => {
+            console.log(response);
+            
+            // we can not do console.log(response.json) here, or it will give error. because that would be response.json().json() returned.
+            return response.json()
+        })
+        .then(responseJson => {
+            console.log(responseJson);
+
+            console.log(responseJson.username);
+            this.props.navigation.navigate("Home")
+        })
+    } 
 
     render() {
         return (
@@ -98,7 +127,7 @@ export default class Login extends React.Component {
                 </View>
 
                 <View style={styles.Form}>
-                    <Form onPress={()=>this.props.navigation.navigate("Home")} />
+                    <Form onPress={() => this.login()} />
                 </View>
 
                 <Image
